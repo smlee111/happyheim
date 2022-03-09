@@ -1,6 +1,7 @@
 <template>
   <div>
       mainPage
+      test
   </div>
 </template>
 
