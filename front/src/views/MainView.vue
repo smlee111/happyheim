@@ -10,7 +10,6 @@ import KakaoMap from '../components/KakaoMap.vue'
 import LeftInfo from '../components/LeftInfo.vue'
 export default {
   components: { KakaoMap, LeftInfo },
-
 }
 </script>
 
