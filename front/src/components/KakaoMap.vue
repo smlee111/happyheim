@@ -1,8 +1,10 @@
 <template>
   <div>
     <div id="map"></div>
-    {{this.$store.state.items[0].id}}
-    <button v-on:click="getStore()">jjj</button>
+    title : {{this.title}}
+    id : {{this.id}}
+    x : {{this.x}}
+    y : {{this.y}}
   </div>
 </template>
 
@@ -11,7 +13,11 @@ export default {
   name: "KakaoMap",
   data() {
     return {
-     
+      title : '',
+      id : '',
+      x:'',
+      y:''
+
     };
   },
   mounted() {
@@ -48,7 +54,11 @@ export default {
       let getStore = (title) =>{
         items.forEach(i =>{
           if(title == i.title){
-            console.log(`id:${i.id} / title:${i.title} / x,y:${i.x,i.y}`);
+            console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
+            this.id = i.id;
+            this.title = i.title;
+            this.x = i.x;
+            this.y = i.y;
             //중앙으로 이동
             var moveLatLng = new kakao.maps.LatLng(i.x, i.y);   
             this.map.panTo(moveLatLng);
@@ -73,6 +83,7 @@ export default {
               image : markerImage, // 마커 이미지 
               clickable: true
           });
+          //마커에 클릭이벤트 부여
           kakao.maps.event.addListener(marker, 'click', function() {
             let title = marker.getTitle();
             getStore(title);
