@@ -18,12 +18,25 @@ export default new Vuex.Store({
         x: 37.484810395764505, 
         y: 126.92777209000958,
       }
-    ]
+    ],
+    nowLocation : {
+      
+    }
 
   },
   mutations: {
+    SETLOC(state,title){
+      state.items.forEach(i =>{
+          if(title == i.title){
+            console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
+            state.nowLocation = i;
+            console.log(state.nowLocation);
+          }
+        })
+    }
   },
   actions: {
+    
   },
   modules: {
   }

@@ -13,10 +13,7 @@ export default {
   name: "KakaoMap",
   data() {
     return {
-      title : '',
-      id : '',
-      x:'',
-      y:''
+
     };
   },
   mounted() {
@@ -48,26 +45,26 @@ export default {
       
       let items = this.$store.state.items;
    
-      //가게 정보 가져오기 
-      //this 가져오려면 화살표 함수 써야함;;
-      let getStore = (title) =>{
-        items.forEach(i =>{
-          if(title == i.title){
-            console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
-            this.id = i.id;
-            this.title = i.title;
-            this.x = i.x;
-            this.y = i.y;
-            //중앙으로 이동
-            var moveLatLng = new kakao.maps.LatLng(i.x, i.y);   
-            this.map.panTo(moveLatLng);
-          }
-        })
-      }
+      // 가게 정보 가져오기 
+      // this 가져오려면 화살표 함수 써야함;;
+      // let getStore = (title) =>{
+      //   items.forEach(i =>{
+      //     if(title == i.title){
+      //       console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
+      //       this.id = i.id;
+      //       this.title = i.title;
+      //       this.x = i.x;
+      //       this.y = i.y;
+      //       //중앙으로 이동
+      //       var moveLatLng = new kakao.maps.LatLng(i.x, i.y);   
+      //       this.map.panTo(moveLatLng);
+      //     }
+      //   })
+      // }
 
       //마커 생성 및 클릭이벤트 생성
       this.$store.state.items.forEach(i => {
-        // 마커 이미지의 이미지 크기 입니다
+         // 마커 이미지의 이미지 크기 입니다
           var imageSize = new kakao.maps.Size(24, 35); 
           
           // 마커 이미지를 생성합니다    
@@ -82,11 +79,27 @@ export default {
               image : markerImage, // 마커 이미지 
               clickable: true
           });
+
+          //mutations로 title 전달 
+          let sendLoc = (title) =>{
+            this.$store.commit('SETLOC',title)
+          }
+
+          //중앙으로 이동
+          const move = () =>{
+            var moveLatLng = new kakao.maps.LatLng(this.$store.state.nowLocation.x, this.$store.state.nowLocation.y);   
+            this.map.panTo(moveLatLng);
+          }
+
           //마커에 클릭이벤트 부여
           kakao.maps.event.addListener(marker, 'click', function() {
             let title = marker.getTitle();
-            getStore(title);
+            sendLoc(title);
+            move();
           });
+
+          
+          
       });
       
     },
