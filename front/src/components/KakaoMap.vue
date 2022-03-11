@@ -114,6 +114,7 @@ export default {
 #map {
   width: calc(100% - 375px);
   height: 100vh;
+  background: #ccc;
   position: fixed;top: 0;left: 375px;z-index: 1;
 }
 
