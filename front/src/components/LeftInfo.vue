@@ -26,11 +26,17 @@
         </section>
         <!-- //container end -->
 
+        <Story></Story>
+
     </div>
 </template>
 
 <script>
+import Story from '@/components/Story.vue';
 export default ({
+    components: {
+        Story,
+    },
     methods: {
         keyUp() {
         }
