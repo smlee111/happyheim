@@ -5,7 +5,7 @@
         <span class="ic_write black"><svg viewBox="0 0 40 40" class="css-nd8p61"><path d="M28.6 4.5c.4 0 .8.2 1 .4l5.5 5.4a1.5 1.5 0 010 2.1L13 34.5H5.5V27l22-22c.3-.3.7-.5 1.1-.5zm-6.1 6l7 7"></path></svg><span class="blind"></span></span>
       </div>
       <p class="title">이야기 (<span>600</span>)</p>
-      <div class="btn-close">
+      <div class="btn-close" @click="update()">
         <span class="ic_close"><svg viewBox="0 0 40 40" class="css-14vv9id"><path d="M7 7l26 26m0-26L7 33"></path></svg><span class="blind"></span></span>
       </div>
     </div>
@@ -35,7 +35,11 @@
 
 <script>
 export default {
-
+    methods: {
+        update() {
+            $('.info').toggleClass('active');
+        }
+    }
 }
 </script>
 

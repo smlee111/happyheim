@@ -43,11 +43,6 @@
 import Story from '@/components/Story.vue';
 export default ({
     components: { Story },
-    data() {
-        return {
-            isActive: true
-        }
-    },
     methods: {
         update() {
             $('.info').toggleClass('active');
