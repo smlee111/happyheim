@@ -28,9 +28,8 @@ export default new Vuex.Store({
     SETLOC(state,title){
       state.items.forEach(i =>{
           if(title == i.title){
-            console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
+            console.log(i);
             state.nowLocation = i;
-            console.log(state.nowLocation);
           }
         })
     }

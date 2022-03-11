@@ -22,10 +22,7 @@
         <!-- //top end -->
 
         <section class="container">
-            <!-- title : {{this.title}}
-            id : {{this.id}}
-            x : {{this.x}}
-            y : {{this.y}} -->
+            title : {{this.$store.state.nowLocation.title}}
         </section>
         <!-- //container end -->
 
