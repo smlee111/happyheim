@@ -1,10 +1,10 @@
 <template>
   <div>
     <div id="map"></div>
-    title : {{this.title}}
-    id : {{this.id}}
-    x : {{this.x}}
-    y : {{this.y}}
+      <!-- title : {{this.title}}
+      id : {{this.id}}
+      x : {{this.x}}
+      y : {{this.y}} -->
   </div>
 </template>
 
@@ -17,7 +17,6 @@ export default {
       id : '',
       x:'',
       y:''
-
     };
   },
   mounted() {
@@ -100,8 +99,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #map {
-  width: 100%;
-  height: 600px;
+  width: calc(100% - 375px);
+  height: 100vh;
+  position: fixed;top: 0;left: 375px;z-index: 998;
 }
 
 .button-group {
