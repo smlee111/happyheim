@@ -90,21 +90,28 @@ export default {
             var moveLatLng = new kakao.maps.LatLng(this.$store.state.nowLocation.x, this.$store.state.nowLocation.y);   
             this.map.panTo(moveLatLng);
           }
-
+          
+          let sendEvent = () => {
+           this.sendshow();
+          }
+          
           //마커에 클릭이벤트 부여
           kakao.maps.event.addListener(marker, 'click', function() {
             let title = marker.getTitle();
             sendLoc(title);
             move();
+            sendEvent();
           });
-
-          
           
       });
+      //마커 생성 End
+      
       
     },
     //initmap
-    
+    sendshow(){
+      this.$emit('detailshow', 'hello');
+    }
   },
 };
 </script>
