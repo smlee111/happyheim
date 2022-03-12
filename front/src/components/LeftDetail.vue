@@ -1,15 +1,15 @@
 <template>
-    <div class="info">
+    <div class="left-detail">
 
         <div class="left">
             <div class="top">
-                <div class="srchWrap">
-                    <div class="logo-small"></div>
-                    <input type="text" id="input-srch" placeholder="아파트, 지역 또는 학교명으로 검색">
-                    <div id="btn_srch"></div>
-                </div>
+                <SearchBar></SearchBar>
                 <div class="st">
-                    <div class="navigator"></div>
+                    <div class="navigator">
+                        <div class="btn-back"></div>
+                        <div class="now">현재 검색된 주소 말줄임 테스트입니다.</div>
+                        <div class="btn-close"></div>
+                    </div>
                     <p class="address">경기도 성남시 분당구 백현동 542</p>
                 </div>
                 <ul class="menu-main">
@@ -41,8 +41,9 @@
 
 <script>
 import Story from '@/components/Story.vue';
+import SearchBar from '@/components/SearchBar.vue';
 export default ({
-    components: { Story },
+    components: { Story, SearchBar },
     methods: {
         update() {
             $('.info').toggleClass('active');
@@ -51,22 +52,18 @@ export default ({
 })
 </script>
 
-
 <style scoped>
-.info {overflow: hidden; width: 375px; height: 100vh; background: #eaebed; transition: .3s; position: fixed;top: 0;left: 0;z-index: 2;}
-.info.active {width: 750px;}
-.info .left {float: left; width: 375px;}
-.info .right {float: left; width: 375px;}
+.left-detail {overflow: hidden; width: 375px; height: 100vh; background: #eaebed; transition: .3s; position: fixed;top: 0;left: 0;z-index: 2;}
+.left-detail.active {width: 750px;}
+.left-detail .left {float: left; width: 375px;}
+.left-detail .right {float: left; width: 375px;}
 
 .top {width: 100%; padding: 12px 0 0; background: #4d55b2;}
 
-.top .srchWrap {width: calc(100% - 24px); height: 51px; border-radius: 3px; font-size: 16px; background: #fff; padding: 10px 50px 10px 48px; margin: 0 12px; position: relative;}
-.top .srchWrap #input-srch {width: 100%; height: 100%; font-size:16px;}
-.top .srchWrap #input-srch::placeholder {color:#ccc;}
-.top .srchWrap .logo-small {width: 21px; height: 17px; background: url('../assets/images/ic_all.png')no-repeat, #fff; background-position: -261px -291px; cursor: pointer; position: absolute;top: 15px;left: 15px;}
-.top .srchWrap #btn_srch {width: 17px; height: 17px; background: url('../assets/images/ic_all.png')no-repeat, #fff; background-position: -239px -309px; cursor: pointer; position: absolute;top: 16px;right: 15px;}    
-
-.top .st .navigator {width: 100%; height: 58px;}
+.top .st .navigator {width: 100%; height: 58px; position: relative;}
+.top .st .navigator .btn-back {width: 17px; height: 16px; background: url('../assets/images/ic_all.png')no-repeat; background-position: -283px -383px; cursor: pointer; position: absolute;top: 49%;left: 19px; transform: translateY(-50%);}
+.top .st .navigator .now {overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; line-height: 58px; color:#fff; font-size:18px; font-weight: 500; padding: 0 50px;}
+.top .st .navigator .btn-close {width: 14px; height: 14px; background: url('../assets/images/ic_all.png')no-repeat; background-position: -170px -275px; cursor: pointer; position: absolute;top: 49%;right: 19px; transform: translateY(-50%);}
 .top .st .address {line-height: 18px; text-align: center; color: #DEDEEA; font-size: 15px; font-weight: 300; padding: 0 0 10px;}
 
 .top .menu-main {overflow: hidden;}
