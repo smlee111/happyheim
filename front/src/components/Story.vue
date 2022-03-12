@@ -10,16 +10,15 @@
       </div>
     </div>
     <ul class="board">
-        <li>
+        <li v-for="(content, index) in this.$store.state.nowStorys" v-bind:key="index">
           <p class="name">
             <span class="ic_user"><svg viewBox="0 0 40 40" class="css-1vm8c1m"><path d="M36 35v-3c0-5-3.7-8-8.3-8H12.3C7.7 24 4 27 4 32v3h32zM20 5a8 8 0 100 16 8 8 0 100-16z"></path></svg></span>
-            이승민
+            {{content.items.id}}
           </p>
           <p class="content">
-            안녕하세요<br/>
-            이승민입니다.
+            {{content.items.cont}}
           </p>
-          <p class="date">2022-03-11 <span>00:00:00</span></p>
+          <p class="date">{{content.items.reg}} <span>00:00:00</span></p>
           <div class="replyWrap">
             <textarea id="reply"></textarea>
             <div class="btn-write">
@@ -39,7 +38,12 @@ export default {
         update() {
             $('.info').toggleClass('active');
         }
-    }
+    },
+    computed: {
+      filterStory: function() {
+        return this.$store.state.storys.filter(item => item.serialNum === '2') 
+      }
+    },
 }
 </script>
 

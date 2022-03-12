@@ -43,7 +43,7 @@ export default {
       // 마커 이미지의 이미지 주소입니다
       var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
       
-      let items = this.$store.state.items;
+      //let items = this.$store.state.items;
    
       // 가게 정보 가져오기 
       // this 가져오려면 화살표 함수 써야함;;

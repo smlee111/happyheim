@@ -22,38 +22,129 @@ export default new Vuex.Store({
     nowLocation : {
       
     },
+    nowStorys :{
+
+    },
     storys : [
       {
         serialNum : 1,
-        cNum : 1,
-        id : 'lsh',
-        cont : '별로에요ㅜㅠ',
-        reg : '2022-03-11',
-        liked : 2
+        items:{
+          cNum : 1,
+          id : 'lsh',
+          cont : '별로에요ㅜㅠ',
+          reg : '2022-03-11',
+          liked : 2
+        }
       },
       {
         serialNum : 1,
-        cNum : 2,
-        id : 'lsm',
-        cont : '좋은데?',
-        reg : '2022-03-11',
-        liked : 3
+        items:{
+          cNum : 2,
+          id : 'lsm',
+          cont : '좋은데?',
+          reg : '2022-03-11',
+          liked : 3
+        }
+      },
+      {
+        serialNum : 1,
+        items:{
+          cNum : 1,
+          id : 'lsh',
+          cont : '별로에요ㅜㅠ',
+          reg : '2022-03-11',
+          liked : 2
+        }
+      },
+      {
+        serialNum : 1,
+        items:{
+          cNum : 1,
+          id : 'lsh',
+          cont : '별로에요ㅜㅠ',
+          reg : '2022-03-11',
+          liked : 2
+        }
+      },
+      {
+        serialNum : 1,
+        items:{
+          cNum : 1,
+          id : 'lsh',
+          cont : '별로에요ㅜㅠ',
+          reg : '2022-03-11',
+          liked : 2
+        }
+      },
+      {
+        serialNum : 1,
+        items:{
+          cNum : 1,
+          id : 'lsh',
+          cont : '별로에요ㅜㅠ',
+          reg : '2022-03-11',
+          liked : 2
+        }
       },
       {
         serialNum : 2,
-        cNum : 3,
-        id : 'jyh',
-        cont : '시끄러워요',
-        reg : '2022-03-12',
-        liked : 4
+        items:{
+          cNum : 3,
+          id : 'jyh',
+          cont : '시끄러워요',
+          reg : '2022-03-12',
+          liked : 4
+        }
       },
       {
         serialNum : 2,
-        cNum : 4,
-        id : 'jyj',
-        cont : '조용해요',
-        reg : '2022-03-12',
-        liked : 5
+        items:{
+          cNum : 4,
+          id : 'jyj',
+          cont : '조용해요',
+          reg : '2022-03-12',
+          liked : 5
+        }
+      },
+      {
+        serialNum : 2,
+        items:{
+          cNum : 3,
+          id : 'jyh',
+          cont : '시끄러워요',
+          reg : '2022-03-12',
+          liked : 4
+        }
+      },
+      {
+        serialNum : 2,
+        items:{
+          cNum : 4,
+          id : 'jyj',
+          cont : '조용해요',
+          reg : '2022-03-12',
+          liked : 5
+        }
+      },
+      {
+        serialNum : 2,
+        items:{
+          cNum : 3,
+          id : 'jyh',
+          cont : '시끄러워요',
+          reg : '2022-03-12',
+          liked : 4
+        }
+      },
+      {
+        serialNum : 2,
+        items:{
+          cNum : 4,
+          id : 'jyj',
+          cont : '조용해요',
+          reg : '2022-03-12',
+          liked : 5
+        }
       },
     ],
 
@@ -64,6 +155,8 @@ export default new Vuex.Store({
           if(title == i.title){
             console.log(i);
             state.nowLocation = i;
+            let nowStory = state.storys.filter(item => item.serialNum === i.serialNum);
+            state.nowStorys = nowStory;
           }
         })
     }
