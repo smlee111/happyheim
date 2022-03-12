@@ -8,7 +8,7 @@
                     <div class="navigator">
                         <div class="btn-back"></div>
                         <div class="now">현재 검색된 주소 말줄임 테스트입니다.</div>
-                        <div class="btn-close"></div>
+                        <div class="btn-close" v-on:click="close"></div>
                     </div>
                     <p class="address">경기도 성남시 분당구 백현동 542</p>
                 </div>
@@ -47,6 +47,9 @@ export default ({
     methods: {
         update() {
             $('.left-detail').toggleClass('active');
+        },
+        close(){
+            this.$emit('indexshow')
         }
     }
 })

@@ -155,6 +155,7 @@ export default new Vuex.Store({
           if(title == i.title){
             console.log(i);
             state.nowLocation = i;
+            //시리얼 넘버에 맞게 필터링
             let nowStory = state.storys.filter(item => item.serialNum === i.serialNum);
             state.nowStorys = nowStory;
           }
