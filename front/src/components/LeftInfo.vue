@@ -40,6 +40,7 @@
 </template>
 
 <script>
+//@require 
 import Story from '@/components/Story.vue';
 export default ({
     components: { Story },
