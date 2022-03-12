@@ -1,15 +1,15 @@
 <template>
   <div>
-      <kakao-map></kakao-map>
-      <left-info></left-info>
+      <KakaoMap></KakaoMap>
+      <LeftDetail></LeftDetail>
   </div>
 </template>
 
 <script>
-import KakaoMap from '../components/KakaoMap.vue'
-import LeftInfo from '../components/LeftInfo.vue'
+import KakaoMap from '@/components/KakaoMap.vue'
+import LeftDetail from '@/components/LeftDetail.vue'
 export default {
-  components: { KakaoMap, LeftInfo },
+  components: { KakaoMap, LeftDetail },
 }
 </script>
 
