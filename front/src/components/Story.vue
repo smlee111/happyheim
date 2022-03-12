@@ -36,7 +36,7 @@
 export default {
     methods: {
         update() {
-            $('.info').toggleClass('active');
+            $('.left-detail').toggleClass('active');
         }
     },
     computed: {

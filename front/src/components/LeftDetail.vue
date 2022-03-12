@@ -46,7 +46,7 @@ export default ({
     components: { Story, SearchBar },
     methods: {
         update() {
-            $('.info').toggleClass('active');
+            $('.left-detail').toggleClass('active');
         }
     }
 })
