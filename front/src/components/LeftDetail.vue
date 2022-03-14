@@ -5,7 +5,7 @@
                 <SearchBar></SearchBar>
                 <div class="st">
                     <div class="navigator">
-                        <div class="btn-back"></div>
+                        <div class="btn-back" v-on:click="close"></div>
                         <div class="now">{{this.$store.state.nowLocation.title}}</div>
                         <div class="btn-close" v-on:click="close"></div>
                     </div>
