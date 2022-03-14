@@ -2,20 +2,30 @@
     <div class="srchWrap">
         <div class="logo-small"></div>
         <input type="text" id="input-srch" @keyup.enter="search()" placeholder="아파트, 지역 또는 학교명으로 검색">
+        <!-- <input type="text" id="input-srch" v-model="keyWord" @keyup.enter="search()"> -->
         <div id="btn_srch" @click="search()"></div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+            return {
+                keyWord: '아파트, 지역 또는 학교명으로 검색'
+            }
+    },
     methods: {
+        
         search() {
             //검색했을 때 
             //1.keyWord 전달 2.정보 나와야함 3.중앙으로 이동 
             let keyWord = document.querySelector('#input-srch').value;
+            //let keyWord = this.keyWord;
+            console.log(keyWord);
             this.$store.commit('SETLOC',keyWord);
             this.$store.state.isShow = false;
-        }
+        },
+        
     },
     
 }

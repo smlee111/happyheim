@@ -49,7 +49,8 @@ export default ({
         },
         close(){
             this.$store.state.isShow = true;
-        }
+        },
+        
     }
 })
 </script>

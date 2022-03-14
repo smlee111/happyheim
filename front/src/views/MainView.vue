@@ -1,10 +1,10 @@
 <template>
   <div>
       <KakaoMap></KakaoMap>
-      <div v-show="this.$store.state.isShow">
+      <div v-if="this.$store.state.isShow">
         <LeftIndex></LeftIndex>
       </div>
-      <div v-show="!this.$store.state.isShow">
+      <div v-if="!this.$store.state.isShow">
        <LeftDetail></LeftDetail>
       </div>
   </div>
