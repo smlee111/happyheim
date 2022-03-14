@@ -1,10 +1,24 @@
 <template>
     <div class="srchWrap">
         <div class="logo-small"></div>
-        <input type="text" id="input-srch" placeholder="아파트, 지역 또는 학교명으로 검색">
+        <input type="text" id="input-srch" @keyup.enter="search()" placeholder="아파트, 지역 또는 학교명으로 검색">
         <div id="btn_srch"></div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        search() {
+            //검색했을 때 
+            //1.keyWord 전달 2.정보 나와야함 3.중앙으로 이동 
+            let keyWord = document.querySelector('#input-srch').value;
+            this.$store.commit('SETLOC',keyWord);
+        }
+    },
+    
+}
+</script>
 
 <style scoped>
 .srchWrap {width: calc(100% - 24px); height: 51px; border-radius: 3px; font-size: 16px; background: #fff; padding: 10px 50px 10px 48px; margin: 0 12px; position: relative;}
