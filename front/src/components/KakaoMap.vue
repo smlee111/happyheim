@@ -11,11 +11,6 @@
 <script>
 export default {
   name: "KakaoMap",
-  data() {
-    return {
-
-    };
-  },
   mounted() {
     if (window.kakao && window.kakao.maps) {
       this.initMap();
@@ -24,7 +19,7 @@ export default {
       /* global kakao */
       script.onload = () => kakao.maps.load(this.initMap);
       script.src =
-        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=bb92102a4356042a0bcd2448f9f9a27b";
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=bb92102a4356042a0bcd2448f9f9a27b&libraries=services";
       document.head.appendChild(script);
     }
   },
@@ -40,27 +35,11 @@ export default {
       //지도 객체는 반응형 관리 대상이 아니므로 initMap에서 선언합니다.
       this.map = new kakao.maps.Map(container, options);
 
+      // 장소 검색 객체를 생성합니다
+      var ps = new kakao.maps.services.Places(); 
+
       // 마커 이미지의 이미지 주소입니다
       var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-      
-      //let items = this.$store.state.items;
-   
-      // 가게 정보 가져오기 
-      // this 가져오려면 화살표 함수 써야함;;
-      // let getStore = (title) =>{
-      //   items.forEach(i =>{
-      //     if(title == i.title){
-      //       console.log(`id:${i.id} / title:${i.title} / x,y:${i.x},${i.y}`);
-      //       this.id = i.id;
-      //       this.title = i.title;
-      //       this.x = i.x;
-      //       this.y = i.y;
-      //       //중앙으로 이동
-      //       var moveLatLng = new kakao.maps.LatLng(i.x, i.y);   
-      //       this.map.panTo(moveLatLng);
-      //     }
-      //   })
-      // }
 
       //마커 생성 및 클릭이벤트 생성
       this.$store.state.items.forEach(i => {
@@ -99,7 +78,8 @@ export default {
           kakao.maps.event.addListener(marker, 'click', function() {
             let title = marker.getTitle();
             sendLoc(title);
-            move();
+            //move();
+            //움직이는거 데이터 Watch로 변경
             sendEvent();
           });
           
@@ -111,6 +91,18 @@ export default {
     //initmap
     sendshow(){
       this.$emit('detailshow', 'hello');
+    }
+  },
+  computed: {
+    LOC() {
+      return this.$store.state.nowLocation; 
+    }
+  },
+  watch: {
+    LOC(newValue, oldValue) {
+      //중앙으로 이동
+      var moveLatLng = new kakao.maps.LatLng(this.$store.state.nowLocation.x, this.$store.state.nowLocation.y);   
+      this.map.panTo(moveLatLng);
     }
   },
 };

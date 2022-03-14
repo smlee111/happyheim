@@ -160,7 +160,10 @@ export default new Vuex.Store({
             state.nowStorys = nowStory;
           }
         })
-    }
+    },
+    //SET_INFO(state,keyWord){
+    //   console.log(keyWord);
+    // }
   },
   actions: {
     
