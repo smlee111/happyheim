@@ -1,6 +1,5 @@
 <template>
     <div class="left-detail">
-
         <div class="left">
             <div class="top">
                 <SearchBar></SearchBar>
@@ -49,7 +48,7 @@ export default ({
             $('.left-detail').toggleClass('active');
         },
         close(){
-            this.$emit('indexshow')
+            this.$store.state.isShow = true;
         }
     }
 })

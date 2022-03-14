@@ -1,11 +1,11 @@
 <template>
   <div>
-      <KakaoMap @detailshow="detailshow"></KakaoMap>
-      <div v-show="isShow">
+      <KakaoMap></KakaoMap>
+      <div v-show="this.$store.state.isShow">
         <LeftIndex></LeftIndex>
       </div>
-      <div v-show="!isShow">
-       <LeftDetail @indexshow="indexshow"></LeftDetail>
+      <div v-show="!this.$store.state.isShow">
+       <LeftDetail></LeftDetail>
       </div>
   </div>
 </template>
@@ -18,16 +18,11 @@ export default {
   components: { KakaoMap, LeftDetail, LeftIndex },
   data() {
     return {
-      isShow: true
+     
     }
   },
   methods: {
-    detailshow() {
-      this.isShow = false;
-    },
-    indexshow(){
-      this.isShow = true;
-    }
+    
   },
 }
 </script>
