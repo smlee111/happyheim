@@ -111,10 +111,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #map {
-  width: calc(100% - 375px);
+  width: 100%;
   height: 100vh;
   background: #ccc;
-  position: fixed;top: 0;left: 375px;z-index: 1;
+  position: fixed;top: 0;left: 0;z-index: 1;
 }
 
 .button-group {
