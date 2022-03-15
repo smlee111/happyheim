@@ -90,7 +90,7 @@ export default {
     },
     //initmap
     sendshow(){
-      this.$emit('detailshow', 'hello');
+      this.$store.state.isShow = false;
     }
   },
   computed: {
