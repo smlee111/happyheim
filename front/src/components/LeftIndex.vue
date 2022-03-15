@@ -1,6 +1,6 @@
 <template>
     <div class="left-index">
-        <Search-bar></Search-bar>
+        <SearchBar></SearchBar>
     </div>
 </template>
 
@@ -8,12 +8,10 @@
 import SearchBar from '@/components/SearchBar.vue';
 export default ({
     components: { SearchBar },
-    methods: {
-    
-    }
 })
 </script>
 
+
 <style scoped>
-.left-index {width: 375px; height: 100px; background: #000; position: fixed;top: 0;left: 0;z-index: 999;}
+.left-index {overflow: hidden; width: 375px; background: #fff; border: 2px solid #565eb6; border-radius: 5px; transition: .3s; position: fixed;top: 10px;left: 10px;z-index: 2;}
 </style>
