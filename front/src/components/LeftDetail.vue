@@ -5,15 +5,15 @@
                 <SearchBar></SearchBar>
                 <div class="st">
                     <div class="navigator">
-                        <div class="btn-back"></div>
-                        <div class="now">{{this.$store.state.nowLocation.title}}</div>
+                        <div class="btn-back" v-on:click="close"></div>
+                        <div class="now">{{this.nowLocation.title}}</div>
                         <div class="btn-close" v-on:click="close"></div>
                     </div>
-                    <p class="address">경기도 성남시 분당구 백현동 542</p>
+                    <p class="address">{{this.nowLocation.summary.위치}}</p>
                 </div>
                 <ul class="menu-main">
-                    <li>매매<span class="ic"></span></li>
-                    <li>39평<span class="ic"></span></li>
+                    <li>{{this.nowLocation.info[0].형명}}<span class="ic"></span></li>
+                    <!-- <li>39평<span class="ic"></span></li> -->
                     <li @click="update()"><span class="ic"></span><span>600</span></li>
                     <li><span class="ic"></span></li>
                 </ul>
@@ -22,9 +22,15 @@
             <!-- //top end -->
 
             <section class="container">
-                <p class="title">{{this.$store.state.nowLocation.title}}</p>
-                <p class="pos">{{this.$store.state.nowLocation.x}}</p>
-                <p class="pos">{{this.$store.state.nowLocation.y}}</p>
+                <p class="title">{{this.nowLocation.title}}</p>
+                <p class="pos">{{this.nowLocation.info[0].형명}}</p>
+                <p class="pos">{{this.nowLocation.info[0]}}</p>
+                <p class="pos">Summary</p>
+                <p class="pos">{{this.nowLocation.summary}}</p>
+                <p class="pos">{{this.nowLocation.summary}}</p>
+                <p class="pos">Schedule</p>
+                <p class="pos">{{this.nowLocation.schedule}}</p>
+
             </section>
             <!-- //container end -->
         </div>
@@ -39,9 +45,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Story from '@/components/Story.vue';
 import SearchBar from '@/components/SearchBar.vue';
 export default ({
+    computed: {
+        ...mapState(['nowLocation'])
+    },
     components: { Story, SearchBar },
     methods: {
         update() {
