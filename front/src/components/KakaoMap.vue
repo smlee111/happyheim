@@ -1,10 +1,6 @@
 <template>
   <div>
     <div id="map"></div>
-      <!-- title : {{this.title}}
-      id : {{this.id}}
-      x : {{this.x}}
-      y : {{this.y}} -->
   </div>
 </template>
 
@@ -71,7 +67,7 @@ export default {
           }
           
           let sendEvent = () => {
-           this.sendshow();
+            this.sendshow();
           }
           
           //마커에 클릭이벤트 부여
@@ -90,7 +86,8 @@ export default {
     },
     //initmap
     sendshow(){
-      this.$store.state.isShow = false;
+      this.$store.state.isSearch = false;
+      this.$store.state.isDetail = true;
     }
   },
   computed: {
@@ -115,6 +112,11 @@ export default {
   height: 100vh;
   background: #ccc;
   position: fixed;top: 0;left: 0;z-index: 1;
+}
+
+#map.detail {
+  width: calc(100% - 375px);
+  left: 375px;
 }
 
 .button-group {

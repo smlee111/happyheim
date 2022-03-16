@@ -23,7 +23,9 @@ export default {
             //let keyWord = this.keyWord;
             console.log(keyWord);
             this.$store.commit('SETLOC',keyWord);
-            this.$store.state.isShow = false;
+            this.$store.state.isSearch = false;
+            this.$store.state.isRecommend = false;
+            this.$store.state.isDetail = true;
         },
         
     },
