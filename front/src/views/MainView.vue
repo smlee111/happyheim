@@ -1,24 +1,26 @@
 <template>
   <div>
       <KakaoMap></KakaoMap>
-      <div v-if="this.$store.state.isShow">
-        <LeftIndex></LeftIndex>
-      </div>
-      <div v-if="!this.$store.state.isShow">
-       <LeftDetail></LeftDetail>
+      <div class="leftWrap">
+        <Index v-if="this.$store.state.isIndex"></Index>
+        <Recommend v-if="this.$store.state.isRecommend"></Recommend>
+        <Search v-if="this.$store.state.isSearch"></Search>
+        <Detail v-if="this.$store.state.isDetail"></Detail>
       </div>
   </div>
 </template>
 
 <script>
 import KakaoMap from '@/components/KakaoMap.vue'
-import LeftDetail from '@/components/LeftDetail.vue'
-import LeftIndex from '@/components/LeftIndex.vue'
+import Index from '@/components/Index.vue'
+import Recommend from '@/components/Recommend.vue'
+import Search from '@/components/Search.vue'
+import Detail from '@/components/Detail.vue'
 export default {
-  components: { KakaoMap, LeftDetail, LeftIndex },
+  components: { KakaoMap, Index, Recommend, Search, Detail },
   data() {
     return {
-     
+      
     }
   },
   methods: {
@@ -27,6 +29,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

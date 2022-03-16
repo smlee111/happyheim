@@ -5,24 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isShow :true,
+    isIndex : true,
+    isRecommend : false,
+    isRecommendOption : true,
+    isRecommendList : false,
+    isSearch : false,
+    isDetail : false,
     items : [
       {
-         serialNum : 1,
-         title : "신림 할리스", 
-         x: 37.48445337260817,
-         y: 126.9282442770891,
-      },
-      {
-        serialNum : 2,
-        title : "부뚜막", 
-        x: 37.484810395764505, 
-        y: 126.92777209000958,
-      },
-      {
-        serialNum : 3,
-        title : "하남감일", 
-        x:37.50842292582616, 
+        serialNum : 1,
+        title : "하남감일",
+        x:37.50842292582616,
         y:127.16425480921386,
         summary: {
           공고명 : '하남감일 A7BL 신혼희망타운(행복주택) 추가 입주자 모집',

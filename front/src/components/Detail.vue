@@ -5,9 +5,9 @@
                 <SearchBar></SearchBar>
                 <div class="st">
                     <div class="navigator">
-                        <div class="btn-back" v-on:click="close"></div>
+                        <div class="btn-back" @click="back()"></div>
                         <div class="now">{{this.nowLocation.title}}</div>
-                        <div class="btn-close" v-on:click="close"></div>
+                        <div class="btn-close" @click="close()"></div>
                     </div>
                     <p class="address">{{this.nowLocation.summary.위치}}</p>
                 </div>
@@ -49,6 +49,16 @@ import { mapState } from 'vuex';
 import Story from '@/components/Story.vue';
 import SearchBar from '@/components/SearchBar.vue';
 export default ({
+    created () {
+        if(!this.$store.state.isDetail){
+            $('#map').addClass('detail');
+        }
+    },
+    destroyed () {
+        if(this.$store.state.isDetail){
+            $('#map').removeClass('detail');
+        }
+    },
     computed: {
         ...mapState(['nowLocation'])
     },
@@ -57,9 +67,16 @@ export default ({
         update() {
             $('.left-detail').toggleClass('active');
         },
-        close(){
-            this.$store.state.isShow = true;
+        back(){
+            this.$store.state.isDetail = false;
+            this.$store.state.isRecommend = false;
+            this.$store.state.isSearch = true;
         },
+        close(){
+            this.$store.state.isDetail = false;
+            this.$store.state.isRecommend = false;
+            this.$store.state.isIndex = true;
+        }
         
     }
 })
