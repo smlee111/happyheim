@@ -1,18 +1,25 @@
 <template>
     <ul class="list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li v-for="(list,index) in this.recoLists" :key="index" @click="setloc(list.title)">
+            {{index+1}}. {{list.title}}
+        </li>
     </ul>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-
+    methods: {
+        setloc(title) {
+           this.$store.commit('SETLOC',title) 
+        }
+    },
+    computed: {
+        ...mapState(['recoLists'])
+    },
 }
 </script>
 
-<style>
-
+<style scoped>
+    
 </style>

@@ -24,7 +24,7 @@ export default {
       const container = document.getElementById("map");
       const options = {
         center: new kakao.maps.LatLng(37.50842292582616, 127.16425480921386),
-        level: 1,
+        level: 3,
       };
 
       //지도 객체를 등록합니다.
