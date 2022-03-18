@@ -14,5 +14,5 @@ export default {
 </script>
 
 <style>
-.left-recommend {overflow: hidden; width: 375px; background: #fff; border: 2px solid #565eb6; border-radius: 5px; transition: .3s; padding: 30px 35px; position: fixed;top: 10px;left: 10px;z-index: 2;}
+.left-recommend {overflow: hidden; width: 375px; background: #fff; border: 2px solid #565eb6; border-radius: 5px; transition: .3s; padding: 30px 35px; position: fixed;top: 10px;left: 400px;z-index: 2;}
 </style>
